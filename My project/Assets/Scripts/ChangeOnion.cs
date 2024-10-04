@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ChangeOnion : MonoBehaviour
 {
+    public GameObject textoDoBalao;
+    public GameObject instrucao;
     public Image image;
     public Image pimentao;
     public Image cebolaCortada;
-    public Image camarao;
+    public Image alho;
+    public Image analu;
+    public GameObject qteManager;
     public List<Sprite> spriteChoices;
-
     private int counter;
     private int currentSprite = 0;
 
     void Awake()
     {
+        textoDoBalao.SetActive(false);
         pimentao.enabled = false;
         cebolaCortada.enabled = false;
-        camarao.enabled = false;
+        alho.enabled = false;
+        analu.enabled = false;
     }
 
     void Update()
@@ -29,6 +35,18 @@ public class ChangeOnion : MonoBehaviour
         {
             NextSprite();
         }
+
+        if (currentSprite == 7 && Input.GetKeyDown(KeyCode.X))
+        {
+            GoToPan();
+        }
+
+    }
+
+    public void GoToPan()
+    {
+        SceneManager.LoadScene("Frying Step");
+        Time.timeScale = 0f;
     }
 
     public void NextSprite()
@@ -55,13 +73,20 @@ public class ChangeOnion : MonoBehaviour
                 pimentao.enabled = true;
             }
 
-            else if (currentSprite == 6)
+            else if (currentSprite == 7)
             {
-                camarao.enabled = true;
+                alho.enabled = true;
+                instrucao.SetActive(false);
+                analu.enabled = true;
+                textoDoBalao.SetActive(true);
+                qteManager.SetActive(false);
+
             }
 
-
             image.sprite = spriteChoices[currentSprite];
+
         }
+
     }
+
 }
