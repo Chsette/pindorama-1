@@ -16,11 +16,13 @@ public class ChangeOnion : MonoBehaviour
     public Image analu;
     public GameObject qteManager;
     public List<Sprite> spriteChoices;
+    private bool maxSprites;
     private int counter;
     private int currentSprite = 0;
 
     void Awake()
     {
+        maxSprites = false;
         textoDoBalao.SetActive(false);
         pimentao.enabled = false;
         cebolaCortada.enabled = false;
@@ -31,16 +33,15 @@ public class ChangeOnion : MonoBehaviour
     void Update()
     {
         // Verifica se a barra de espaço foi pressionada
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !maxSprites)
         {
             NextSprite();
         }
 
-        if (currentSprite == 7 && Input.GetKeyDown(KeyCode.X))
+        if (maxSprites && Input.GetKeyDown(KeyCode.X))
         {
             GoToPan();
         }
-
     }
 
     public void GoToPan()
@@ -57,36 +58,34 @@ public class ChangeOnion : MonoBehaviour
         {
             currentSprite++;
             counter = 0;
+
             if (currentSprite >= spriteChoices.Count)
             {
                 image.enabled = false;
                 Debug.Log("Sprite removida");
+                maxSprites = true; 
+                return; 
             }
 
-            else if (currentSprite == 4)
+            if (currentSprite == 4)
             {
+                instrucao.SetActive(false);
                 cebolaCortada.enabled = true;
             }
-
             else if (currentSprite == 5)
             {
                 pimentao.enabled = true;
             }
-
             else if (currentSprite == 7)
             {
                 alho.enabled = true;
-                instrucao.SetActive(false);
                 analu.enabled = true;
                 textoDoBalao.SetActive(true);
                 qteManager.SetActive(false);
-
+                maxSprites = true; 
             }
 
             image.sprite = spriteChoices[currentSprite];
-
         }
-
     }
-
 }
