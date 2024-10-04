@@ -362,7 +362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelGame: {fileID: 0}
   panelPause: {fileID: 0}
-  panelStart: {fileID: 0}
 --- !u!4 &702862071
 Transform:
   m_ObjectHideFlags: 0
@@ -516,7 +515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18, y: -368.06}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -678.8031, y: -736.1244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278784038
@@ -539,17 +538,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: press any key to start
+  m_text: Press any key to start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 132a5f879a31b124b93bebc6ad55d9cf, type: 2}
+  m_sharedMaterial: {fileID: -7880906353668123004, guid: 132a5f879a31b124b93bebc6ad55d9cf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292690431
-  m_fontColor: {r: 1, g: 0.254902, b: 0.86637384, a: 1}
+    rgba: 4292739327
+  m_fontColor: {r: 1, g: 0, b: 0.86989164, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -566,13 +565,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.84
-  m_fontSizeBase: 73.84
+  m_fontSize: 72
+  m_fontSizeBase: 74
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -628,6 +627,7 @@ GameObject:
   - component: {fileID: 1671680551}
   - component: {fileID: 1671680550}
   - component: {fileID: 1671680549}
+  - component: {fileID: 1671680552}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -718,6 +718,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1671680552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671680547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7df1630b35e52c4b80027dbac59bea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893001251
 GameObject:
   m_ObjectHideFlags: 0
