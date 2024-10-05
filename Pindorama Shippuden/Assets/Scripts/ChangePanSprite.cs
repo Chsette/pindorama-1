@@ -12,10 +12,13 @@ public class ChangePanSprite : MonoBehaviour
     public Image alhoFrito;
     public Image pimentaoFrito;
     public Image camaraoFrito;
+    public GameObject analu;
+    public GameObject gameManager;
+    public List<Sprite> spriteChoices;
+    public AudioSource louderHm;
     private bool maxSprites;
     private int counter;
     private int currentSprite = 0;
-    public List<Sprite> spriteChoices;
 
 
     void Awake()
@@ -24,6 +27,7 @@ public class ChangePanSprite : MonoBehaviour
         alhoFrito.enabled = false;
         pimentaoFrito.enabled = false;
         camaraoFrito.enabled = false;
+        analu.SetActive(false);
     }
 
     void Update()
@@ -38,6 +42,11 @@ public class ChangePanSprite : MonoBehaviour
         {
             GoToEnding();
         }
+    }
+
+    public void playTheHm()
+    {
+        louderHm.Play();
     }
 
     public void GoToEnding()
@@ -65,7 +74,7 @@ public class ChangePanSprite : MonoBehaviour
 
             if (currentSprite == 3)
             {
-                cebolaFrita.enables = true;
+                cebolaFrita.enabled = true;
             }
 
             if (currentSprite == 6)
@@ -78,14 +87,12 @@ public class ChangePanSprite : MonoBehaviour
                 pimentaoFrito.enabled = true;
             }
 
-            if (currentSprite == 12)
+            else if (currentSprite == 12)
             {
                 camaraoFrito.enabled = true;
-            }
-
-            else if (currentSprite == 13)
-            {
-                //qteManager.SetActive(false);
+                analu.SetActive(true);
+                playTheHm();
+                gameManager.SetActive(false);
                 maxSprites = true;
             }
 

@@ -38,7 +38,7 @@ public class Timer : MonoBehaviour
 
     public void OnClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (currentTime > 2.5 && currentTime < 3.5)
             {

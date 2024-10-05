@@ -20,8 +20,6 @@ public class PointerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(pointA.gameObject);
-        DontDestroyOnLoad(pointB.gameObject);
         pointerTransform = GetComponent<RectTransform>();
         targetPosition = pointB.position;
     }

@@ -16,6 +16,8 @@ public class ChangeOnion : MonoBehaviour
     public Image analu;
     public GameObject qteManager;
     public List<Sprite> spriteChoices;
+    public AudioSource slightHm;
+    public AudioSource chopchop;
     private bool maxSprites;
     private int counter;
     private int currentSprite = 0;
@@ -36,12 +38,23 @@ public class ChangeOnion : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !maxSprites)
         {
             NextSprite();
+            playThisSoundEffect();
         }
 
         if (maxSprites && Input.GetKeyDown(KeyCode.X))
         {
             GoToPan();
         }
+    }
+
+    public void playThisSoundEffect()
+    {
+        chopchop.Play();
+    }
+
+    public void playTheHm()
+    {
+        slightHm.Play();
     }
 
     public void GoToPan()
@@ -80,6 +93,7 @@ public class ChangeOnion : MonoBehaviour
             {
                 alho.enabled = true;
                 analu.enabled = true;
+                playTheHm();
                 textoDoBalao.SetActive(true);
                 qteManager.SetActive(false);
                 maxSprites = true; 
